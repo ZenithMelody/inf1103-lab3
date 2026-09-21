@@ -16,6 +16,11 @@ def get_valid_input():
                 
                 return int(user_Input)
 
+# finds new total
+def process_delivery(current_total, new_value):
+        return current_total + new_value
+
+# report summary generation
 def generate_report(inventory, failed_Enteries):
         print("\nReport Summary")
         print(f"Total Units Processed: {inventory}")
@@ -30,8 +35,7 @@ while True:
 
     amount = int(user_Input)
 
-
-    inventory += amount
+    inventory = process_delivery(inventory, user_Input)
 
     # state management
     print(f"Added {amount} | Current Inventory: {inventory}")
