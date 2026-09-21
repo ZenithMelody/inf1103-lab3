@@ -1,18 +1,27 @@
 inventory = 0
 failed_Enteries = 0
 
+# handles prompt, input validation / return valid ints or 'quit' signal
+def get_valid_input():
+        global failed_Enteries # it could not access it without the global
+        while True:
+                user_Input = input("Enter stock or quit to exit: ")
+                if user_Input.lower() == "quit":
+                        return "quit"
+                
+                if not user_Input.isdigit():
+                        print("Try again")
+                        failed_Enteries += 1
+                        continue
+                
+                return int(user_Input)
+
 while True:
 
-    user_Input = input("Enter stock (or quit to exit): ")
+    user_Input = get_valid_input()
 
     if user_Input == "quit":
             break
-
-    # reject digits and negatives
-    if not user_Input.isdigit():
-         print("Try again")
-         failed_Enteries += 1
-         continue
 
     amount = int(user_Input)
 
