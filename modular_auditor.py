@@ -16,6 +16,11 @@ def get_valid_input():
                 
                 return int(user_Input)
 
+def generate_report(inventory, failed_Enteries):
+        print("\nReport Summary")
+        print(f"Total Units Processed: {inventory}")
+        print(f"Number of Failed/Rejected Entries: {failed_Enteries}")
+        
 while True:
 
     user_Input = get_valid_input()
@@ -35,6 +40,4 @@ while True:
         print("Over limit of 500")
         break
 
-print("\nReport Summary")
-print(f"Total Units Processed: {inventory}")
-print(f"Number of Failed/Rejected Entries: {failed_Enteries}")
+generate_report(inventory, failed_Enteries)
